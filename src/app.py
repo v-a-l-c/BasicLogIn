@@ -22,12 +22,8 @@ def create_app():
     db.init_app(app)
 
     @app.route('/', methods=["GET"])
-    def hello_world():
+    def start():
         return render_template('index.html')
-
-    @app.route('/parameters/<param>', methods=["GET"])
-    def get_parameter(param):
-        return f"Parameter: {param}"
 
     from controllers.cookies_controller import cookies_bp
     from controllers.sql_controller import sql_bp
