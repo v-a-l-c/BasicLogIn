@@ -1,6 +1,4 @@
-from random import randint
-
-from flask import Flask, request, jsonify, render_template, Response, session
+from flask import Flask, render_template
 from sqlalchemy import URL, text
 from alchemyClasses import db
 
@@ -16,13 +14,13 @@ def create_app():
         password="P4ssw0rd@",
         host="localhost",
         port=3306,
-        database="practica2"
+        database="practica4"
     )
     app.config.from_mapping(SECRET_KEY="dev")
     db.init_app(app)
-
-    @app.route('/', methods=["GET"])
-    def start():
+    
+    @app.route('/login', methods=["GET"])
+    def login_view():
         return render_template('index.html')
 
     from controllers.cookies_controller import cookies_bp
