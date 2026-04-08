@@ -20,6 +20,8 @@ def login():
 
     if result:
         session['user'] = username
-        return jsonify({"success": True})
+        session['rol'] = result.rol
+        return jsonify({"success": True,
+                        "rol": result.rol})
     else:
         return jsonify({"success": False, "message": "Credenciales incorrectas"}), 401

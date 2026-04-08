@@ -75,7 +75,7 @@ document.getElementById("loginForm").addEventListener("submit", async function(e
     if (data.success) {
         document.getElementById("successMessage").style.display = "block";
         setTimeout(() => {
-            window.location.href = "/dashboard";
+            window.location.href = "/user";
         }, 1500);
     } else {
         alert(data.message || "Error en login");
